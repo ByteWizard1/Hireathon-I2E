@@ -69,8 +69,10 @@ const ChatWindow = () => {
           <AnimatePresence>
             {messages.length === 0 ? (
                <motion.div 
+                 key="empty-state"
                  initial={{ opacity: 0, y: 20 }}
                  animate={{ opacity: 1, y: 0 }}
+                 exit={{ opacity: 0, y: -20 }}
                  className="flex flex-col items-center justify-center h-full text-center px-4"
                >
                  <Rocket className="w-16 h-16 text-gray-700 mb-6" />
@@ -94,8 +96,10 @@ const ChatWindow = () => {
             {/* Loading Indicator */}
             {isLoading && (
                <motion.div
+                 key="loading-indicator"
                  initial={{ opacity: 0 }}
                  animate={{ opacity: 1 }}
+                 exit={{ opacity: 0 }}
                  className="w-full py-6 px-4 bg-userBubble/10 border-y border-gray-800"
                >
                  <div className="max-w-4xl mx-auto flex gap-6">
